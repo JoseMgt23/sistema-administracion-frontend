@@ -8,6 +8,24 @@
             <div class="card-body">
                 <form @submit.prevent="saveContrato">
                     <div class="row mb-3">
+                        <label for="id" class="form-label">Codigo:</label>
+                        <div class="input-group">
+                            <div class="input-group-text"><font-awesome-icon icon="tag" /></div>
+                            <input type="text" class="form-control" id="descripcion" placeholder="Codigo de Contrato" disabled
+                                v-model='contrato.id'>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="propiedad_id" class="form-label">Propiedad :</label>
+                        <div class="input-group">
+                            <div class="input-group-text"><font-awesome-icon icon="bank" /></div>
+                            <select class="input-group-text" v-model="contrato.propiedad_id">
+                                <option v-for="propiedad in propiedades" :key="propiedad.id" :value="propiedad.id">{{ propiedad.id }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
                         <label for="nombre" class="form-label">Nombre:</label>
                         <div class="input-group">
                             <div class="input-group-text"><font-awesome-icon icon="building" /></div>

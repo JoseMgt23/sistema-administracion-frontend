@@ -59,9 +59,9 @@ const routes = [
   },
   {
     path: '/add-contrato/',
-    name: 'NewContrato',
+    name: 'NuevoContrato',
     component: NewContrato
-  }
+  },
 
 
 ]
