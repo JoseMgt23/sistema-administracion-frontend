@@ -22,6 +22,17 @@ const routes = [
     component: Propiedades
 
   },
+  {
+    path:'/editar-propiedad/:id',
+    name: 'EditarPropiedad',
+    component: EditarPropiedad
+  },
+  {
+    path:'/add-propiedad/',
+    name:'NewPropiedad',
+    component: NewPropiedad
+  },
+
 
 ]
 
