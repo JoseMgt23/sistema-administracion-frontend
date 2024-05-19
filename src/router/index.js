@@ -13,6 +13,10 @@ import EditarContrato from '@/components/Contratos/EditarContrato.vue';
 import NewContrato from '@/components/Contratos/NewContrato.vue';
 import Contratos from '../views/Contratos.vue';
 
+//arrendatario importacion
+import EditarArrendatario from '@/components/Arrendatarios/EditarArrendatario.vue';
+import NewArrendatario from '@/components/Arrendatarios/NewArrendatario.vue';
+import Arrendatarios from '../views/Arrendatarios.vue';
 
 const routes = [
   {
@@ -61,6 +65,23 @@ const routes = [
     path: '/add-contrato/',
     name: 'NuevoContrato',
     component: NewContrato
+  },
+
+  //Arrendatarios Rutas
+  {
+    path: '/arrendatarios',
+    name: 'Arrendatarios',
+    component: Arrendatarios
+  },
+  {
+    path: '/editar-arrendatario/:id',
+    name: 'EditarArrendatario',
+    component: EditarArrendatario
+  },
+  {
+    path: '/add-arrendatario/',
+    name: 'NuevoArrendatario',
+    component: NewArrendatario
   },
 
 
