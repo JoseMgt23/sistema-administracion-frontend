@@ -1,7 +1,7 @@
 <template>
     <div class="container">
       <h1 class="text-start">
-        Listado Propiedades |
+        | Listado Propiedades |
         <button @click="newPropiedad" class="btn btn-success mx-2">
           <font-awesome-icon icon="plus" />
         </button>

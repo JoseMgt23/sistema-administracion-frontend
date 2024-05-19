@@ -1,9 +1,18 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
+
+
+//propiedades
+import EditarPropiedad from '@/components/Propiedades/EditPropiedad.vue';
+import NewPropiedad from '@/components/Propiedades/NewPropiedad.vue';
+import Propiedades from '../views/Propiedades'
 import HomeView from '../views/HomeView.vue'
 
 
-import EditarPropiedad from '@/components/Propiedad/EditarPropiedad.vue';
-import Propiedades from '../views/Propiedades'
+//contratos
+import EditarContrato from '@/components/Contratos/EditarContrato.vue';
+import NewContrato from '@/components/Contratos/NewContrato.vue';
+import Contratos from '../views/Contratos.vue';
+
 
 const routes = [
   {
@@ -35,6 +44,24 @@ const routes = [
     name:'NewPropiedad',
     component: NewPropiedad
   },
+
+  //Contratos
+  {
+    path: '/contratos',
+    name: 'Contratos',
+    component: Contratos
+  },
+  {
+    path: '/editar-contrato/:id',
+    name: 'EditarContrato',
+    component: EditarContrato
+
+  },
+  {
+    path: '/add-contrato/',
+    name: 'NewContrato',
+    component: NewContrato
+  }
 
 
 ]
