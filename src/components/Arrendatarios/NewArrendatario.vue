@@ -60,12 +60,12 @@
 <script>
 import axios from 'axios'
 import Swal from 'sweetalert2'
-
 export default {
     name: 'NuevoArrendatario',
     data(){
         return{
             arrendatario:{
+                id:0,
                 nombre:'',
                 apellido:'',
                 telefono: '',
@@ -77,7 +77,6 @@ export default {
         cancelar(){
             this.$router.push({name: 'Arrendatarios'})
         },
-
         async saveArrendatario(){
             try {
                 const res = await axios.post('http://127.0.0.1:8000/api/arrendatarios', this.arrendatario)
