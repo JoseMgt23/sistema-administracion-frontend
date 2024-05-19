@@ -4,6 +4,7 @@
     <router-link to="/about">About </router-link>
     <router-link to="/propiedades">| Propiedades</router-link>
     <router-link to="/contratos">| Contratos</router-link>
+    <router-link to="/arrendatarios">| Arrendatarios</router-link>
   </div>
   <router-view/>
 </template>
