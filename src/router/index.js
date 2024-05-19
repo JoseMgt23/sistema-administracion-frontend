@@ -18,6 +18,11 @@ import EditarArrendatario from '@/components/Arrendatarios/EditarArrendatario.vu
 import NewArrendatario from '@/components/Arrendatarios/NewArrendatario.vue';
 import Arrendatarios from '../views/Arrendatarios.vue';
 
+//Mantenimiento importacion
+import Mantenimiento from '@/views/Mantenimiento.vue';
+import EditarMantenimiento from '@/components/Mantenimientos/EditarMantenimiento.vue';
+import NewMantenimiento from '@/components/Mantenimientos/NewMantenimiento.vue';
+
 const routes = [
   {
     path: '/',
@@ -83,7 +88,22 @@ const routes = [
     name: 'NuevoArrendatario',
     component: NewArrendatario
   },
-
+  //Mantenimiento Rutas
+  {
+    path: '/mantenimientos',
+    name: 'Mantenimientos',
+    component: Mantenimiento
+  },
+  {
+    path: '/editar-mantenimiento/',
+    name: 'EditarMantenimiento',
+    component: EditarMantenimiento
+  },
+  {
+    path: '/add-mantenimiento/',
+    name: 'NuevoMantenimiento',
+    component: NewMantenimiento
+  }
 
 ]
 
