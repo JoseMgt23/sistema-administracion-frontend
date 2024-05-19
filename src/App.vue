@@ -6,6 +6,7 @@
     <router-link to="/contratos">| Contratos</router-link>
     <router-link to="/arrendatarios">| Arrendatarios</router-link>
     <router-link to="/mantenimientos">| Mantenimiento</router-link>
+    <router-link to="/pagos">| Pagos</router-link>
   </div>
   <router-view/>
 </template>

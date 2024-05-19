@@ -23,6 +23,11 @@ import Mantenimiento from '@/views/Mantenimiento.vue';
 import EditarMantenimiento from '@/components/Mantenimientos/EditarMantenimiento.vue';
 import NewMantenimiento from '@/components/Mantenimientos/NewMantenimiento.vue';
 
+//Pagos importacion
+import Pagos from '@/views/Pagos.vue';
+import EditarPagos from '@/components/Pagos/EditarPagos.vue';
+import NewPagos from '@/components/Pagos/NewPagos.vue';
+
 const routes = [
   {
     path: '/',
@@ -103,7 +108,23 @@ const routes = [
     path: '/add-mantenimiento/',
     name: 'NuevoMantenimiento',
     component: NewMantenimiento
-  }
+  },
+  //Pagos
+  {
+    path: '/pagos',
+    name: 'Pagos',
+    component: Pagos
+  },
+  {
+    path: '/editar-pagos/',
+    name: 'EditarPagos',
+    component: EditarPagos
+  },
+  {
+    path: '/add-pagos/',
+    name: 'NewPago',
+    component: NewPagos
+  },
 
 ]
 
