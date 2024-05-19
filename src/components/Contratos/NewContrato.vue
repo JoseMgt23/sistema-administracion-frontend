@@ -75,10 +75,12 @@ export default {
         return {
             contrato: {
                 nombre:'',
+                propiedad_id: 0,
                 descripcion:'',
                 fecha_inicio: null,
                 fecha_fin: null
-            }
+            },
+            propiedades: []
         }
     },
     methods: {
