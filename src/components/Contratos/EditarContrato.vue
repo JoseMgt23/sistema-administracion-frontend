@@ -8,29 +8,31 @@
             <div class="card-body">
                 <form @submit.prevent="updateContrato">
                     <div class="row mb-3">
-                        <label for="codigo" class="form-label">Código</label>
+                        <label for="id" class="form-label">Codigo:</label>
                         <div class="input-group">
-                            <div class="input-group">
-                                <div class="input-group-text"> <font-awesome-icon icon="tag" /></div>
-                                <input type="text" class="form-control" id="codigo" placeholder="Código Contrato" disabled 
-                                    v-model='contrato.id'>
-                            </div>
+                            <div class="input-group-text"><font-awesome-icon icon="tag" /></div>
+                            <input type="text" class="form-control" id="descripcion" placeholder="Codigo de Contrato" disabled
+                                v-model='contrato.id'>
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label for="nombre" class="form-label">Nombre:</label>
-                        <div class="input-group">
-                            <div class="input-group-text"><font-awesome-icon icon="building" /></div>
-                            <input type="text" class="form-control" id="nombre" placeholder="Nombre Contrato"
-                                v-model='contrato.nombre'>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label for="descripcion" class="form-label">Descripción:</label>
+                        <label for="propiedad_id" class="form-label">Propiedad:</label>
                         <div class="input-group">
                             <div class="input-group-text"><font-awesome-icon icon="bank" /></div>
-                            <input type="text" class="form-control" id="descripcion" placeholder="Descripción Contrato"
-                                v-model='contrato.descripcion'>
+                            <select class="form-select" v-model="contrato.propiedad_id">
+                                <option selected disabled value="0">Seleccione la propiedad</option>
+                                <option v-for="propiedad in propiedades" :key="propiedad.id" :value="propiedad.id">{{ propiedad.direccion }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="arrendatario_id" class="form-label">Arrendatario:</label>
+                        <div class="input-group">
+                            <div class="input-group-text"><font-awesome-icon icon="bank" /></div>
+                            <select class="form-select" v-model="contrato.arrendatario_id">
+                                <option selected disabled value="0">Seleccione el arrendatario</option>
+                                <option v-for="arrendatario in arrendatarios" :key="arrendatario.id" :value="arrendatario.id">{{ arrendatario.nombre }}</option>
+                            </select>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -47,6 +49,14 @@
                             <div class="input-group-text"><font-awesome-icon icon="calendar-alt" /></div>
                             <input type="date" class="form-control" id="fecha_fin" placeholder="Fecha de Fin"
                                 v-model='contrato.fecha_fin'>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="renta_mensual" class="form-label">Renta Mensual:</label>
+                        <div class="input-group">
+                            <div class="input-group-text"><font-awesome-icon icon="dollar-sign" /></div>
+                            <input type="number" class="form-control" id="renta_mensual" placeholder="Renta Mensual"
+                                v-model='contrato.renta_mensual'>
                         </div>
                     </div>
                     <button class="btn btn-primary" type="submit">Actualizar</button>
@@ -67,11 +77,14 @@ export default {
         return{
             contrato:{
                 id: 0,
-                nombre:'',
-                descripcion:'',
+                propiedad_id:0,
+                arrendatario_id: 0,
                 fecha_inicio: null,
-                fecha_fin: null
-            }
+                fecha_fin: null,
+                renta_mensual: null
+            },
+            propiedades: [],
+            arrendatarios: []
         }
     },
     methods: {
@@ -95,11 +108,21 @@ export default {
     },
 
     mounted(){
-        this.contrato.id = this.$route.params.id;
-        axios.get(`http://127.0.0.1:8000/api/contratos/${this.contrato.id}`)
+        axios.get('http://127.0.0.1:8000/api/propiedades')
         .then(response => {
-            this.contrato = response.data.contrato;
+            this.propiedades = response.data.propiedades;
         })
+        .catch(error => {
+            console.error('Error al cargar las propiedades:', error);
+        });
+
+        axios.get('http://127.0.0.1:8000/api/arrendatarios')
+        .then(response => {
+            this.arrendatarios = response.data.arrendatarios;
+        })
+        .catch(error => {
+            console.error('Error al cargar los arrendatarios:', error);
+        });
     },
 }
 </script>

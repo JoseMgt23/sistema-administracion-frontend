@@ -10,20 +10,22 @@
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Descripción</th>
+            <th scope="col">Propiedad</th>
+            <th scope="col">Arrendatario</th>
             <th scope="col">Fecha Inicio</th>
             <th scope="col">Fecha Fin</th>
+            <th scope="col">Renta Mensual</th>
             <th scope="col">Acciones</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="(contrato, index) in contratos" :key="index">
             <th scope="row">{{ index + 1 }}</th>
-            <td>{{ contrato.nombre }}</td>
-            <td>{{ contrato.descripcion }}</td>
+            <td>{{ contrato.prpiedad_id }}</td>
+            <td>{{ contrato.arrendatario_id }}</td>
             <td>{{ contrato.fecha_inicio }}</td>
             <td>{{ contrato.fecha_fin }}</td>
+            <td>{{ contrato.renta_mensual }}</td>
             <td>
               <button @click="deleteContrato(contrato.id)" class="btn btn-danger mx-2">
                 <font-awesome-icon icon="trash" />
@@ -82,6 +84,7 @@
     },
     mounted() {
       this.loadContratos()
+        
     }
   }
   </script>
