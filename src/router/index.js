@@ -96,11 +96,11 @@ const routes = [
   //Mantenimiento Rutas
   {
     path: '/mantenimientos',
-    name: 'Mantenimientos',
+    name: 'Mantenimiento',
     component: Mantenimiento
   },
   {
-    path: '/editar-mantenimiento/',
+    path: '/editar-mantenimiento/:id',
     name: 'EditarMantenimiento',
     component: EditarMantenimiento
   },

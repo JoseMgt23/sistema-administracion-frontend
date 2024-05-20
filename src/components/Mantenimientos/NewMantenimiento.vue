@@ -19,8 +19,10 @@
                         <label for="propiedad_id" class="form-label">Propiedad:</label>
                         <div class="input-group">
                             <div class="input-group-text"><font-awesome-icon icon="bank" /></div>
-                            <input type="number" class="form-control" id="propiedad_id" placeholder="ID Propiedad"
-                                v-model='mantenimiento.propiedad_id'>
+                            <select class="form-select" v-model="mantenimiento.propiedad_id">
+                                <option selected value="0">Seleccione la propiedad</option>
+                                <option v-for="propiedad in propiedades" v-bind:value="propiedad.id"> {{ propiedad.direccion }}</option>
+                            </select>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -64,12 +66,13 @@ export default {
     data(){
         return {
             mantenimiento: {
-                id: '',
-                propiedad_id: '',
+                id: 0,
+                propiedad_id: 0,
                 descripcion: '',
                 fecha: null,
                 costo: 0
-            }
+            },
+            propiedades: [] ,
         }
     },
     methods: {
@@ -100,7 +103,20 @@ export default {
                     showConfirmButton: true,
                 })
             }
+        },
+        async loadPropiedades() {
+            try {
+                const response = await axios.get('http://127.0.0.1:8000/api/propiedades');
+                this.propiedades = response.data.propiedades;
+            } catch (error) {
+                console.error('Error al cargar las propiedades:', error);
+            }
         }
+    },
+
+    mounted() {
+        this.loadPropiedades();
     }
+
 }
 </script>

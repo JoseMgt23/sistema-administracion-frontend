@@ -20,7 +20,7 @@
         <tbody>
           <tr v-for="(mantenimiento, index) in mantenimientos" :key="index">
             <th scope="row">{{ index + 1 }}</th>
-            <td>{{ mantenimiento.propiedad }}</td>
+            <td>{{ mantenimiento.propiedad_id }}</td>
             <td>{{ mantenimiento.descripcion }}</td>
             <td>{{ mantenimiento.fecha }}</td>
             <td>{{ mantenimiento.costo }}</td>

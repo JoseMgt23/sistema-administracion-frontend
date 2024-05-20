@@ -21,7 +21,7 @@
         <tbody>
           <tr v-for="(contrato, index) in contratos" :key="index">
             <th scope="row">{{ index + 1 }}</th>
-            <td>{{ contrato.prpiedad_id }}</td>
+            <td>{{ contrato.propiedad_id }}</td>
             <td>{{ contrato.arrendatario_id }}</td>
             <td>{{ contrato.fecha_inicio }}</td>
             <td>{{ contrato.fecha_fin }}</td>
@@ -84,7 +84,7 @@
     },
     mounted() {
       this.loadContratos()
-        
+
     }
   }
   </script>
