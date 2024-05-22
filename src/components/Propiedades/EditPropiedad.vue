@@ -38,7 +38,7 @@
                         <div class="input-group">
                             <div class="input-group-text"><font-awesome-icon icon="building" /></div>
                             <select class="form-select" v-model="propiedad.tipo">
-                                <option v-for="prop in propiedades" :key="prop.id" :value="prop.tipo">{{ prop.tipo }}</option>
+                                <option v-for="propiedad in propiedades" :key="prop.id" :value="prop.tipo">{{ prop.tipo }}</option>
                             </select>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                         <div class="input-group">
                             <div class="input-group-text"><font-awesome-icon icon="building" /></div>
                             <select class="form-select" v-model="propiedad.disponibilidad">
-                                <option v-for="prop in propiedades" :key="prop.id" :value="prop.disponibilidad">{{ prop.disponibilidad }}</option>
+                                <option v-for="propiedad in propiedades" :key="prop.id" :value="prop.disponibilidad">{{ prop.disponibilidad }}</option>
                             </select>
                         </div>
                     </div>
